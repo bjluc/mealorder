@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "664965673938",
+    "project_id": "fooddelivery-6052f",
+    "storage_bucket": "fooddelivery-6052f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664965673938:android:cbe64eb6014d8f5e510e0b",
+        "android_client_info": {
+          "package_name": "com.bjluc.mealorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664965673938-9l866vfb20tda6qc8kmn36ktfvp5uk3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhGkgiGv1HnZ-w3nLBji-tiyIHWRBGJyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664965673938-9l866vfb20tda6qc8kmn36ktfvp5uk3h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "664965673938-282cnob0o7sho7lq1iigpn6vvnugcj72.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bjluc.mealorder"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
