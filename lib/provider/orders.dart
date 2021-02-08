@@ -1,6 +1,10 @@
 import 'package:flutter/foundation.dart';
+import '../services/firebase_services.dart';
+import 'package:uuid/uuid.dart';
 
 import './cart.dart';
+
+var uuid = Uuid();
 
 class OrderItem {
   final String id;
@@ -24,20 +28,41 @@ class Orders with ChangeNotifier {
   }
 
   Future<void> addOrder(List<CartItem> cartProducts, double total) async {
+    DateTime timeStamp = DateTime.now();
+    FirebaseServices _firebaseServices = FirebaseServices();
+
+    await _firebaseServices.usersRef
+        .doc(_firebaseServices.getUserId())
+        .collection("Orders")
+        .doc()
+        .set({
+      "amount": total.toStringAsFixed(2),
+      "dateTime": timeStamp.toIso8601String(),
+      "products": cartProducts
+          .map((cp) => {
+                "id": cp.id,
+                "name": cp.name,
+                "quantity": cp.quantity,
+                "price": cp.price
+              })
+          .toList()
+    });
+
     _orders.insert(
       0,
       OrderItem(
-        id: DateTime.now().toString(),
+        id: uuid.v4(),
         amount: total,
-        dateTime: DateTime.now(),
+        dateTime: timeStamp,
         products: cartProducts,
       ),
     );
+
     notifyListeners();
   }
 
   void removeOrder() {
-    _orders.clear();
+    _orders = [];
     notifyListeners();
   }
 }

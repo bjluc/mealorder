@@ -23,28 +23,28 @@ class _OrderMealState extends State<OrderMeal> {
       margin: EdgeInsets.all(5.0),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              SizedBox(
-                child: IconButton(
-                  icon: Icon(
-                    Icons.remove,
-                    size: 25.0,
-                  ),
-                  color: Theme.of(context).accentColor,
-                  onPressed: () {
-                    Provider.of<Orders>(context, listen: false).removeOrder();
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(),
-                        ));
-                  },
-                ),
-              )
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.end,
+          //   children: [
+          //     SizedBox(
+          //       child: IconButton(
+          //         icon: Icon(
+          //           Icons.remove,
+          //           size: 25.0,
+          //         ),
+          //         color: Theme.of(context).accentColor,
+          //         onPressed: () {
+          //           Provider.of<Orders>(context, listen: false).removeOrder();
+          //           Navigator.pushReplacement(
+          //               context,
+          //               MaterialPageRoute(
+          //                 builder: (context) => HomePage(),
+          //               ));
+          //         },
+          //       ),
+          //     )
+          //   ],
+          // ),
           ListTile(
             title: Text(
               '£${widget.order.amount.toStringAsFixed(2)}',

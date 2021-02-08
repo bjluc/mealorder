@@ -44,14 +44,14 @@ class _BottomTabsState extends State<BottomTabs> {
             imagePath: "assets/images/tab_saved.png",
             selected: _selectedTab == 1 ? true : false,
             onPressed: () {
-              widget.tabPressed(2);
+              widget.tabPressed(1);
             },
           ),
           BottomTabBtn(
             imagePath: "assets/images/shopping-cart.png",
             selected: _selectedTab == 2 ? true : false,
             onPressed: () {
-              widget.tabPressed(1);
+              widget.tabPressed(2);
               Navigator.push(
                   context,
                   MaterialPageRoute(
