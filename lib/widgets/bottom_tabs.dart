@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../screens/orders_pages.dart';
 
 class BottomTabs extends StatefulWidget {
   final int selectedTab;
@@ -40,17 +41,22 @@ class _BottomTabsState extends State<BottomTabs> {
             },
           ),
           BottomTabBtn(
-            imagePath: "assets/images/shopping-cart.png",
+            imagePath: "assets/images/tab_saved.png",
             selected: _selectedTab == 1 ? true : false,
             onPressed: () {
-              widget.tabPressed(1);
+              widget.tabPressed(2);
             },
           ),
           BottomTabBtn(
-            imagePath: "assets/images/tab_saved.png",
+            imagePath: "assets/images/shopping-cart.png",
             selected: _selectedTab == 2 ? true : false,
             onPressed: () {
-              widget.tabPressed(2);
+              widget.tabPressed(1);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OrdersPage(),
+                  ));
             },
           ),
           BottomTabBtn(

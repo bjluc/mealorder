@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mealorder/provider/cart.dart';
+import 'package:provider/provider.dart';
 import '../screens/cart_page.dart';
 import '../constants.dart';
-// import './cart_total_item.dart';
 import 'cart_item_total.dart';
 
 // ignore: must_be_immutable
@@ -15,6 +16,8 @@ class CustomActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final cart = Provider.of<Cart>(context, listen: false);
+
     bool _hasBackArrow = hasBackArrow ?? false;
     bool _hasTitle = hasTitle ?? true;
     bool _hasBackground = hasBackground ?? true;
@@ -62,19 +65,10 @@ class CustomActionBar extends StatelessWidget {
               title ?? "Action Bar",
               style: Constants.boldHeading,
             ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CartPage(),
-                  ));
-            },
-            child: Stack(
-              children: [
-                Container(child: CartItemTotal()),
-              ],
-            ),
+          Stack(
+            children: [
+              Container(child: CartItemTotal()),
+            ],
           )
         ],
       ),

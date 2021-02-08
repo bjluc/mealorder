@@ -1,32 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import '../services/firebase_services.dart';
 import '../widgets/custom_action_bar.dart';
+import '../widgets/order_item.dart';
+import '../provider/orders.dart';
 
-class Checkout extends StatelessWidget {
-  const Checkout({Key key}) : super(key: key);
+class OrdersPage extends StatelessWidget {
+  const OrdersPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final orderData = Provider.of<Orders>(context);
     return Container(
       child: Scaffold(
         body: Stack(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 114.0),
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  'Checkout Page',
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black),
-                ),
+              child: ListView.builder(
+                itemCount: orderData.orders.length,
+                itemBuilder: (ctx, i) => OrderMeal(orderData.orders[i]),
               ),
             ),
             CustomActionBar(
               hasBackArrow: true,
-              title: "Checkout",
+              title: "Orders",
             ),
           ],
         ),

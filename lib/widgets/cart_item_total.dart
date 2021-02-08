@@ -7,6 +7,7 @@ import '../provider/cart.dart';
 class CartItemTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cart = Provider.of<Cart>(context, listen: false);
     return Consumer<Cart>(
       builder: (_, cart, ch) => Badge(
         child: ch,
@@ -14,15 +15,20 @@ class CartItemTotal extends StatelessWidget {
       ),
       child: IconButton(
         icon: Icon(
-          Icons.shopping_cart,
-          size: 35.0,
+          Icons.shopping_basket_outlined,
+          size: 40.0,
         ),
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CartPage(),
-              ));
+          print(cart.itemCount);
+          if (cart.itemCount == 0) {
+            return false;
+          } else {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CartPage(),
+                ));
+          }
         },
       ),
     );

@@ -18,13 +18,6 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   FirebaseServices _firebaseServices = FirebaseServices();
 
-  // final SnackBar _snackBar = SnackBar(
-  //   content: Text("Product added to the cart"),
-  // );
-  final SnackBar _snackBarSaved = SnackBar(
-    content: Text("Product saved in the your basket"),
-  );
-
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context, listen: false);
@@ -46,8 +39,6 @@ class _ProductPageState extends State<ProductPage> {
                 if (snapshot.connectionState == ConnectionState.done) {
                   // Firebase Document Data Map
                   Map<String, dynamic> documentData = snapshot.data.data();
-                  // ProductId store to add in to basket
-                  // String productId = widget.productId;
                   // List of images
                   List imageList = documentData['images'];
                   // List of Allergens
@@ -86,8 +77,21 @@ class _ProductPageState extends State<ProductPage> {
 
                                   cart.addItem(
                                       productId, productName, productPrice);
-                                  Scaffold.of(context)
-                                      .showSnackBar(_snackBarSaved);
+                                  Scaffold.of(context).hideCurrentSnackBar();
+                                  Scaffold.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Added item to cart!',
+                                      ),
+                                      duration: Duration(seconds: 2),
+                                      action: SnackBarAction(
+                                        label: 'UNDO',
+                                        onPressed: () {
+                                          cart.removeSingleItem(productId);
+                                        },
+                                      ),
+                                    ),
+                                  );
                                 }),
                           ],
                         ),

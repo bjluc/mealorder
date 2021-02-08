@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../tabs/home_tab.dart';
-// import '../tabs/cart_tab.dart';
+import '../tabs/cart_tab.dart';
 // import '../tabs/saved_tab.dart';
 import '../widgets/bottom_tabs.dart';
 // import '../tabs/search_tab.dart';
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
               },
               children: [
                 HomeTab(),
-                // CartTab(),
+                CartTab(),
                 // SavedTab(),
               ],
             ),

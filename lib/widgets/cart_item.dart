@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mealorder/provider/cart.dart';
 import 'package:provider/provider.dart';
+import '../provider/cart.dart';
 
 class CartMeal extends StatelessWidget {
   final String id;
