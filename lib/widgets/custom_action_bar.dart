@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mealorder/provider/cart.dart';
-import 'package:provider/provider.dart';
-import '../screens/cart_page.dart';
+// import 'package:mealorder/provider/cart.dart';
+// import 'package:provider/provider.dart';
+// import '../screens/cart_page.dart';
 import '../constants.dart';
 import 'cart_item_total.dart';
 
